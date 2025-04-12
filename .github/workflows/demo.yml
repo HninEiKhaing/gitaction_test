@@ -20,9 +20,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Print Weather API Secrect
         run: echo ${{secrets.WEATHER_KEY}}
-      - name: Run python file as testing
-        run: python testing/test.py
-      #   env:
-      #     WEATHER_KEY: ${{secrets.WEATHER_KEY}}
-      #     sqlite: ${{secrets.SQLITE}}
-      # - name: Push saved sqlite db
+      - name: Run ETL pipeline
+        run: python testing/etldemo.py
+        env:
+          WEATHER_KEY: ${{secrets.WEATHER_KEY}}
+        
