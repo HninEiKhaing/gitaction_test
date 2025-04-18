@@ -104,7 +104,8 @@ def transform_data():
     # print(f"Total capitals : {len(capital_names)}")
     weather_df = get_all_cities_weather(capital_names)
     # print(f"Weather Result : {weather_df.shape}")
-    
+    logging.info(f"Weather_df columns : {weather_df.columns}")
+
     ## Join city_df with weather
     city_weather_df = city_df.merge(weather_df, how="inner", left_on='country_capital', right_on='city')
     # print(f"Joined result - {city_weather_df.shape}")
